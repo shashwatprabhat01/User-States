@@ -1,0 +1,146 @@
+### MongoDB queries and their outputs :-
+
+local> db.UserStates.countDocuments();
+21068
+
+local> db.UserStates.distinct("userState").length
+12
+
+local> db.UserStates.distinct("userState")
+[
+  '',       'address',
+  'bank',   'demat',
+  'email',  'intent',
+  'kyc',    'pan',
+  'panTxt', 'rptTxn',
+  'signup', 'txn'
+
+
+local> db.UserStates.countDocuments({"userState":"rptTxn"})
+71
+local> db.UserStates.countDocuments({"userState":""})
+2011
+local> db.UserStates.countDocuments({"userState":"bank"})
+300
+local> db.UserStates.countDocuments({"userState":"email"})
+3
+local> db.UserStates.countDocuments({"userState":"kyc"})
+1853
+local> db.UserStates.countDocuments({"userState":"panTxt"})
+1015
+local> db.UserStates.countDocuments({"userState":"signup"})
+13957
+local> db.UserStates.countDocuments({"userState":"address"})
+257
+local> db.UserStates.countDocuments({"userState":"demat"})
+28
+local> db.UserStates.countDocuments({"userState":"intent"})
+316
+local> db.UserStates.countDocuments({"userState":"pan"})
+43
+local> db.UserStates.countDocuments({"userState":"txn"})
+1214
+
+
+local> db.UserStates.countDocuments({"osType":"iOS"})
+2834
+local> db.UserStates.countDocuments({"osType":"Android"})
+13885
+local> db.UserStates.distinct("osType")
+[
+  '',            'Android',
+  'Chromium OS', 'Linux',
+  'Mac OS',      'Ubuntu',
+  'Windows',     'iOS',
+  'web'
+]
+local> db.UserStates.countDocuments({"osType":"Windows"})
+1689
+local> db.UserStates.countDocuments({"utmCampaign":"rahulmalodia"})
+4007
+
+
+### Output of countuserstates.js file :-
+
+base) shashwatp-bvd@Shashwatp-BVD:~/learn$ node countuserstates.js
+(node:578879) [MONGODB DRIVER] Warning: useNewUrlParser is a deprecated option: useNewUrlParser has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:578879) [MONGODB DRIVER] Warning: useUnifiedTopology is a deprecated option: useUnifiedTopology has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
+Connected to MongoDB
+State: , User Count: 2011
+State: address, User Count: 257
+State: bank, User Count: 300
+State: demat, User Count: 28
+State: email, User Count: 3
+State: intent, User Count: 316
+State: kyc, User Count: 1853
+State: pan, User Count: 43
+State: panTxt, User Count: 1015
+State: rptTxn, User Count: 71
+State: signup, User Count: 13957
+State: txn, User Count: 1214
+
+
+### Output of countOS.js file :-
+
+(base) shashwatp-bvd@Shashwatp-BVD:~/learn$ node countOS.js
+(node:597742) [MONGODB DRIVER] Warning: useNewUrlParser is a deprecated option: useNewUrlParser has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:597742) [MONGODB DRIVER] Warning: useUnifiedTopology is a deprecated option: useUnifiedTopology has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
+Connected to MongoDB
+Total number of users: 21068
+osType: , User Count: 2097, Percentage: 9.95%
+osType: Android, User Count: 13885, Percentage: 65.91%
+osType: Chromium OS, User Count: 3, Percentage: 0.01%
+osType: Linux, User Count: 145, Percentage: 0.69%
+osType: Mac OS, User Count: 402, Percentage: 1.91%
+osType: Ubuntu, User Count: 6, Percentage: 0.03%
+osType: Windows, User Count: 1689, Percentage: 8.02%
+osType: iOS, User Count: 2834, Percentage: 13.45%
+osType: web, User Count: 7, Percentage: 0.03%
+
+
+### Output of countcampaign.js file :-
+
+(base) shashwatp-bvd@Shashwatp-BVD:~/learn$ node countcampaign.js
+(node:599503) [MONGODB DRIVER] Warning: useNewUrlParser is a deprecated option: useNewUrlParser has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:599503) [MONGODB DRIVER] Warning: useUnifiedTopology is a deprecated option: useUnifiedTopology has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
+Connected to MongoDB
+Total number of users: 21068
+utmCampaign: AdRoll12Apr, User Count: 1, Percentage: 0.00%
+utmCampaign: Anant_ladha, User Count: 1, Percentage: 0.00%
+utmCampaign: DisplayCampaign1, User Count: 1, Percentage: 0.00%
+utmCampaign: FD_facebook_primary_account_app_install_android_High_Intent_Users_april, User Count: 1, Percentage: 0.00%
+utmCampaign: FD_facebook_primary_account_payment_success_android_High_Intent_Users, User Count: 1, Percentage: 0.00%
+utmCampaign: Finnovationz, User Count: 1, Percentage: 0.00%
+utmCampaign: Himani, User Count: 1, Percentage: 0.00%
+utmCampaign: RaviHanda, User Count: 1, Percentage: 0.00%
+utmCampaign: VinnyArora, User Count: 1, Percentage: 0.00%
+utmCampaign: announcement, User Count: 1, Percentage: 0.00%
+utmCampaign: himanshumiglani, User Count: 1, Percentage: 0.00%
+utmCampaign: oyo, User Count: 1, Percentage: 0.00%
+utmCampaign: profile, User Count: 1, Percentage: 0.00%
+utmCampaign: risewithrahul, User Count: 1, Percentage: 0.00%
+utmCampaign: ww_corporate_bonds_oct2023_adset1_creative2_newfreshcampaign_oro90KLAL, User Count: 1, Percentage: 0.00%
+utmCampaign: shashwatverma, User Count: 3, Percentage: 0.01%
+utmCampaign: yash, User Count: 2, Percentage: 0.01%
+utmCampaign: rahuljain, User Count: 8, Percentage: 0.04%
+utmCampaign: sahilbhadviya, User Count: 8, Percentage: 0.04%
+utmCampaign: adroll, User Count: 11, Percentage: 0.05%
+utmCampaign: Akshat, User Count: 13, Percentage: 0.06%
+utmCampaign: Anant, User Count: 16, Percentage: 0.08%
+utmCampaign: rachanaranade, User Count: 34, Percentage: 0.16%
+utmCampaign: harshbhagat, User Count: 45, Percentage: 0.21%
+utmCampaign: prasadbyfinnovationz, User Count: 46, Percentage: 0.22%
+utmCampaign: battenbazzarki, User Count: 55, Percentage: 0.26%
+utmCampaign: akashbanerjee, User Count: 85, Percentage: 0.40%
+utmCampaign: deepakwadhwa, User Count: 109, Percentage: 0.52%
+utmCampaign: affiliate, User Count: 183, Percentage: 0.87%
+utmCampaign: anuragtalks, User Count: 352, Percentage: 1.67%
+utmCampaign: dashboard_email, User Count: 579, Percentage: 2.75%
+utmCampaign: rahulmalodia, User Count: 4007, Percentage: 19.02%
+utmCampaign: , User Count: 15497, Percentage: 73.56%
+utmCampaign: Not specified, User Count: 15497, Percentage: 73.56%
+
+
